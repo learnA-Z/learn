@@ -1,0 +1,24 @@
+
+```
+extern int i; //声明，不是定义
+int i; //声明，也是定义
+
+函数声明 默认就是 extern ,所以函数声明(extern可有可无)
+```
+
+谨记：声明可以多次，定义只能一次。
+//相当于python 的global
+
+```
+//a.cpp
+int i;//定义的地方
+
+-----------
+//b.cpp
+extern int i;//需要使用i的地方.
+int main(){
+    ;//使用变量 i
+    return 0;
+}
+
+```

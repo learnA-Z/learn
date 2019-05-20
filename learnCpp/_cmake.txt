@@ -1,0 +1,28 @@
+**cmake**  --> makefile  -->make
+
+|      |  autotools    |   cmake   |
+| ---- | ---- | ---- |
+|变量定义|	name=...|	set(name, "...")|
+|环境检测|	AC_INIT<br>测试程序 <br>AC_PROG_CC<br>?测试函数库<br>AC_CHECK_LIB([pthread], [pthread_rwlock_init])<br>?AC_PROG_RANLIB <br>测试头文件<br>?测试类型定义<br>?测试结构<br>?测试编译器特性<br>?测试库函数 <br>?测试系统调用<br>AC_OUTPUT	|find_library(lib libname pathllist)<br>find_package(packename)<br>find_path(var name pathlist)<br>find_program(var name pathlist)|
+|子目录|	SUBDIRS=|	add_subdirectory(list)|
+|可执行文件	|bin_PROGRAMS=binname<br>binname_SOURCES=<br>binname_LDADD=<br>binname_CFLAGS=<br>binname_LDFLAGS=	|add_executable(binname ${sources})<br>target_link_libraries(binname librarylist)|
+|动态库	|lib_LIBRARIES=libname.so<br>libname_SOURCES=|	add_library(libname shared ${source} )|
+|静态库|	lib_LIBRARIES=libname.a<br>libname_a_SOURCES=	|add_library(libname static ${source} )|
+|头文件	|INCLUDES=<br>include_HEADES=<br>或CFLAGS=-I	|include_directories(list)|
+|源码搜索	||?	aux_source_directories(. list)|
+|依赖库	|LIBS=<br>LDADD=|	target_link_libraries(binname librarylist)|
+|标志|	CFLAGS=<br>LDFLAGS=	|set(CMAKE_C_FLAGS? ...)|
+|libtool	|AC_PROG_LIBTOOL<br>lib_LTLIBRARIES=name.la<br>name_la_SOURCES=	|          |
+|安装设置	?|  |	install(TARGETS targets...<br>[[ARCHIVE|LIBRARY|RUNTIME][DESTINATION < dir >][PERMISSIONS permissions...]<br>[CONFIGURATIONS[Debug|Release|...]]<br>[COMPONENT < component >][OPTIONAL]] [...])|
+|其他文件|	EXTRA_DIST|	install(FILES files.. )<br>install(DIRECTORY dirs..)|
+|条件语句	|使用Make的条件语句<br>if()<br>endif	|if(my)<br>else(my)<br>endif(my)<br>while(condition)<br>endwhile(condition)|
+|执行外部命令	?	||exec_program(commd )|
+|子模块||	?	include()|
+|信息输出||	?	messge(STATUS "messge")|
+|?项目	||?	project(name)|
+
+---------------------
+作者：cnsword 
+来源：CSDN 
+原文：https://blog.csdn.net/cnsword/article/details/7542696 
+版权声明：本文为博主原创文章，转载请附上博文链接！

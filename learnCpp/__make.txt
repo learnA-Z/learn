@@ -1,0 +1,10 @@
+cmake  --> makefile  -->**make**
+
+
+
+makefile
+```makefile
+target: dependences
+	cmd
+
+```
